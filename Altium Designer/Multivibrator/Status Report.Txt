@@ -1,0 +1,23 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 11:37:52 PM On 3/15/2017
+
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [Multivibrator.PcbDoc]
+   Generated File[Multivibrator.GTL]
+   Generated File[Multivibrator.GBL]
+   Generated File[Multivibrator.GPB]
+   Generated File[Multivibrator.GPT]
+   Generated File[Multivibrator.GTO]
+   Generated File[Multivibrator.GTS]
+   Generated File[Multivibrator.GBS]
+   Generated File[Multivibrator.RUL]
+   Generated File[Multivibrator.EXTREP]
+   Generated File[Multivibrator.REP]
+
+
+Files Generated   : 10
+Documents Printed : 0
+
+Finished Output Generation At 11:37:55 PM On 3/15/2017

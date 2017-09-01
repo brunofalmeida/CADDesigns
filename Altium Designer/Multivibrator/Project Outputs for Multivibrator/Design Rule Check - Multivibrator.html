@@ -1,0 +1,408 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3/15/2017</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:22:10 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc" class="file"><acronym title="C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc">C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">12</td></tr>
+</table>
+</td>
+</table><a name="IDUH3P1Z5JQBYPODNA5K3CWPN0EPRU1U0SSQQZITIKKU3AS1253IHP"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0FOMIZZI3VLXIUS2C3IRWNKWWE3O2APXHVBSSALX2QYK3HT2MHVD">Clearance Constraint (Gap=0.25mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ14I3JFXXJ3EKEFH3DHGKLPLFKNT333E0VRBMIGPEKQ4BHMHT3KO">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDXBAHN2CNSGUORPCEVFZWOHHYGFXKVWNVNDHIJC2AJQADEE0A0BK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPICUNSHHWIRJCO3XUMO2F4YRTET5VJPCALXCU3LGA2MQMQK2UHZK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2YW2XSGVNQZWMAYGWFEIJ0HLLHLRAZR44DFT50LON3LR5H2YWY0M">Width Constraint (Min=0.25mm) (Max=0.25mm) (Preferred=0.25mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID11PE2JKDGJUKMO5STXIFY0CGQICMU33VZYIEULEGDZJMYTTGPMHN">Width Constraint (Min=0.25mm) (Max=0.5mm) (Preferred=0.5mm) ((InNet('12V') OR InNet('GND')))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHQXCWWI3TD5VPZU5MN25JPTJYLPPJBP5BOOGBB3OUCEP2ZR1BXE">Routing Layers(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPZXAFCZTI2QIMPBUMMVDFQPU1FVTNOITVKLDSJKDKAPWDHXMOXP">Routing Via (MinHoleWidth=0.6mm) (MaxHoleWidth=0.6mm) (PreferredHoleWidth=0.6mm) (MinWidth=1mm) (MaxWidth=1mm) (PreferedWidth=1mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQV2HC4JMGWFABXSSQRLSJ2VXXCLX4UNWHMZ2ZDFU3GDH2TVUKQ2J">Differential Pairs Uncoupled Length using the Gap Constraints (Min=0.254mm) (Max=0.254mm) (Prefered=0.254mm)  and Width Constraints (Min=0.381mm) (Max=0.381mm) (Prefered=0.381mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBAFTHLPIG0BVL13R3XY5UZFKYDO0O1PET2G51OLWFNPNCO1NI5XE">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTRWUVKIS15UUEMN1QOQTZKQD3JK14S2NTMLJ0ZJ25YSFO2JIKU3F">Fabrication Testpoint Style (Under Component=Yes) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYMKUDK21MIGYNEVO3AKM0FGGPSYLR1KY33US4DEUGQ0VGC1L53K">Fabrication Testpoint Usage (Valid =One Required, Allow multiple per net=No) (All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQDVYR2L2O0SEJDSJ2O2LJ22SMM5FLIPTBSOTRRGZ4RWMUPJP15MN">Assembly Testpoint Style (Under Component=Yes) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIPCIT2WJFPEXMP2IYMET1IZV1LB03GQ10DP2WMDDDN2ZWOERNH1G">Assembly Testpoint Usage (Valid =One Required, Allow multiple per net=No) (All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1TDEE524GEXEG5DDIMUQ51FI0D3EPY3SLKQACTPO3XONGAH5YE5">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTE3YMD0RUSO0BGYLCHKTGFXI2DQXAHPK3LWXSFLNY0NOWOJLQL1C">Pads and Vias to follow the Drill pairs settings</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXFHJWN5S3SEDCZJ2NCT3NGJP3PE044W54PMGZCE5RYUBV4M2LLJP">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIM5KQ4WAJ0ZPMVTGQ00UQNMBZNUN5NRE3R2BOTOFWVA25SWYNLTD">Minimum Solder Mask Sliver (Gap=0.125mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYPVF3AL2KIAQGAYJMQGYZHY0FELAEJ3JAQGUKDP0BCO4IAGB4PHH">Silk To Solder Mask (Clearance=0.125mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ04OVMDVB5KBDHRMWF231Z1EALK02KA4LXU3OXP3SDVOPSOV312H">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLYFDRPXTDNJ5Z34N335KDYTBINXCCBU32KHXFECWSG1B0XT2D2F">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4WXJKOGYJQRQII5CT3QOQJ5ATNMVUJP3LIQJAYBU1VBZRFIHM2RB">Component Clearance Constraint ( Horizontal Gap = 0.254mm, Vertical Gap = 0.254mm ) (All),(All) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUCQA1DEDBQMZLKYW4LXK3N2SEL1J0L4K25SHCCFKSB4KBQG1Y3SK">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">12</td>
+</tr>
+</table><br><a name="IDYMKUDK21MIGYNEVO3AKM0FGGPSYLR1KY33US4DEUGQ0VGC1L53K"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Fabrication Testpoint Usage (Valid =One Required, Allow multiple per net=No) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5510.602mil|Location2.X=6382.799mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5510.602mil|Location2.X=6382.799mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Fabrication Testpoint Usage: Net NetC2_2 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5129.303mil|Location2.X=6001.5mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5129.303mil|Location2.X=6001.5mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Fabrication Testpoint Usage: Net NetC2_1 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.768mil|Location2.X=6763.964mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.768mil|Location2.X=6763.964mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Fabrication Testpoint Usage: Net NetC1_2 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5460.468mil|Location2.X=6332.665mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5460.468mil|Location2.X=6332.665mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Fabrication Testpoint Usage: Net NetC1_1 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6338.507mil|Location1.Y=3592.579mil|Location2.Y=4647.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6338.507mil|Location1.Y=3592.579mil|Location2.Y=4647.058mil|Absolute=True">Fabrication Testpoint Usage: Net GND - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6455.107mil|Location1.Y=3009.027mil|Location2.Y=4180.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6455.107mil|Location1.Y=3009.027mil|Location2.Y=4180.105mil|Absolute=True">Fabrication Testpoint Usage: Net 12V - Missing required testpoint</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIPCIT2WJFPEXMP2IYMET1IZV1LB03GQ10DP2WMDDDN2ZWOERNH1G"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Assembly Testpoint Usage (Valid =One Required, Allow multiple per net=No) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5510.602mil|Location2.X=6382.799mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5510.602mil|Location2.X=6382.799mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Assembly Testpoint Usage: Net NetC2_2 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5129.303mil|Location2.X=6001.5mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5129.303mil|Location2.X=6001.5mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Assembly Testpoint Usage: Net NetC2_1 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.768mil|Location2.X=6763.964mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5891.768mil|Location2.X=6763.964mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Assembly Testpoint Usage: Net NetC1_2 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5460.468mil|Location2.X=6332.665mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5460.468mil|Location2.X=6332.665mil|Location1.Y=3686.783mil|Location2.Y=4558.98mil|Absolute=True">Assembly Testpoint Usage: Net NetC1_1 - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6338.507mil|Location1.Y=3592.579mil|Location2.Y=4647.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6338.507mil|Location1.Y=3592.579mil|Location2.Y=4647.058mil|Absolute=True">Assembly Testpoint Usage: Net GND - Missing required testpoint</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6455.107mil|Location1.Y=3009.027mil|Location2.Y=4180.105mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Bruno\Documents\Multivibrator\Multivibrator.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5284.029mil|Location2.X=6455.107mil|Location1.Y=3009.027mil|Location2.Y=4180.105mil|Absolute=True">Assembly Testpoint Usage: Net 12V - Missing required testpoint</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
