@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name REF5025AIDGKR)(type Legacy)(uri "$(KIPRJMOD)/libraries/REF5025AIDGKR.mod")(options "")(descr ""))
+  (lib (name ADS7952SRHBT)(type Legacy)(uri "$(KIPRJMOD)/libraries/ADS7952SRHBT.mod")(options "")(descr ""))
+)
