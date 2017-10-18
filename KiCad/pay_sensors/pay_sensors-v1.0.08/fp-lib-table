@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name REF5025AIDGKR)(type Legacy)(uri "$(KIPRJMOD)/libraries/REF5025AIDGKR.mod")(options "")(descr ""))
+)

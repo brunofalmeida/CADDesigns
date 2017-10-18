@@ -1,0 +1,8 @@
+ERC report (Saturday, August 12, 2017 'pmt' 02:42:08 pm, Encoding UTF8 )
+
+***** Sheet /
+ErrType(5): Conflict problem between pins. Severity: error
+    @ (139.70 mm,76.20 mm): Pin 26 (Output) of component U4 is connected to 
+    @ (200.66 mm,78.74 mm): pin 14 (Output) of component U6 (net 57).
+
+ ** ERC messages: 1  Errors 1  Warnings 0

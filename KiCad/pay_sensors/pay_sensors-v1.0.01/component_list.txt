@@ -1,0 +1,7 @@
+Int to Freq - TCS3200 (Package D, 8-Lead SOIC) (could be TCS3210?)
+Integrated Photodiode/Op Amp - OPT101 (Clear Plastic 8-Pin PDIP and J-Lead SOP)
+2 x Photodiode - TEMD5510FX01 (what footprint?), SFH 2430 (what footprint?)
+2 x Op Amp - LTC6240H (S8 Package, 8-Lead Plastic SO)
+Voltage Reference - REF5025-HT (HKJ Package, 8-Pin CFP)
+ADC - ADS7953 (RGE Package, 32-Pin VQFN)
+Programmable Gain Amplifier - AD8231 (16-lead LFCSP)

@@ -1,0 +1,6 @@
+Int to Freq - ?
+Integrated Photodiode + Op Amp - ?
+Photodiode - ?
+Op Amp - ?
+Voltage Reference - ?
+ADC - ?
