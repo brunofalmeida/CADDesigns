@@ -1,7 +1,6 @@
 # CAD Designs
 
-A collection of various CAD designs (Computer Aided Design) I have created and experimented with.
-
+A collection of various CAD designs I have created or experimented with (that are not part of my other repositories).
 
 ## Software
 
